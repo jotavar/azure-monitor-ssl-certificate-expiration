@@ -14,3 +14,7 @@ This solution uses the following Azure Services:
 * [Azure Automation](https://docs.microsoft.com/en-us/azure/automation/overview)
 * [Azure Monitor Logs](https://docs.microsoft.com/en-us/azure/azure-monitor/logs/data-platform-logs)
 * [Azure Monitor Alerts](https://docs.microsoft.com/en-us/azure/azure-monitor/alerts/alerts-overview)
+
+### Architecture
+![](https://github.com/jotavar/monitor-ssl-certificate-expiration/blob/master/images/monitor-ssl-certificate-expiration-architecture-diagram.drawio.png)
+
