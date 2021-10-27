@@ -123,7 +123,7 @@ foreach ($url in $urlList) {
     if ($certExpiresIn -ne $null) {
         Write-Output "SSL certificate at $url has $certExpiresIn days left until expiration."
 
-        $logEntry = "{`"TimeStamp`": `"$timeStamp`", `"url`": `"$url`", `"certExpiresIn`": `"$certExpiresIn`"}"
+        $logEntry = "{`"TimeStamp`": `"$timeStamp`", `"url`": `"$url`", `"certExpiresIn`": $certExpiresIn}"
         Write-Output "Sending following log entry to Log Analytics Workspace:`n$logEntry"
         _SendToLogAnalytics -CustomerId $logAnalyticsWorkspaceID `
                             -SharedKey $logAnalyticsPrimaryKey `
@@ -137,4 +137,3 @@ foreach ($url in $urlList) {
         Write-Error "Will not write to Log Analytics Workspace since an SSL certificate could not be retrieved."
     }
 }
-
