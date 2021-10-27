@@ -16,3 +16,18 @@ Although CAs and other services responsible for emiting SSL certificates will se
 
 ![](https://github.com/jotavar/monitor-ssl-certificate-expiration/blob/master/images/monitor-ssl-certificate-expiration-architecture-diagram.drawio.png)
 
+This solution consists of: 
+
+* An Azure Automation Account containing:
+  * The following Variables:
+    * List of HTTPS endpoint URLs to monitor
+    * Log Analytics Workspace ID
+    * Log Analytics Primary Key
+  * A Runbook consisting of a PowerShell script which executes the following steps for each URL:
+    * executes an HTTP GET request on the URL in order to retrieve the SSL certificate
+    * parses the certificate and calculates the number of days remaining until certificate expiration
+    * sends an entry to Log Analytics Workpace containing the URL and the number of days calculated in previous step
+  * A Schedule which is linked to the Runbook and specifies it's recurring execution   
+
+* A Log Analytics Workspace which will be used to store the monitored SSL certificate data
+
