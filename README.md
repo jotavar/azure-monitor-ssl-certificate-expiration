@@ -27,7 +27,7 @@ This solution consists of:
     * executes an HTTP GET request on the URL in order to retrieve the SSL certificate
     * parses the certificate and calculates the number of days remaining until certificate expiration
     * sends an entry to Log Analytics Workpace containing the URL and the number of days calculated in previous step
-  * A Schedule which is linked to the Runbook and specifies it's recurring execution   
+  * A Schedule which specifies the Runbook's recurring (daily) execution
 
 * A Log Analytics Workspace which will be used to store the monitored SSL certificate data
 
