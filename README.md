@@ -36,10 +36,18 @@ This solution consists of:
 # Deployment Steps
 
 ## Configure Log Analytics Workspace
+
 If you don't already have a Log Analytics Workspace available, you can quickly create one by following the intstruction in [Create a Log Analytics workspace in the Azure portal](https://docs.microsoft.com/en-us/azure/azure-monitor/logs/quick-create-workspace). 
 
 ## Configure Automation Account
+
 Create an Automation Account by following the intstruction in [Create a standalone Azure Automation account](https://docs.microsoft.com/en-us/azure/automation/automation-create-standalone-account).
+
+### Create the Log Analytics Workspace ID and Primary Key variables
+
+Navigate to 'Log Analytics Workspace' -> 'Agents Management' and check the values in the fields 'Workspace ID' and 'Primary key':
+
+![](https://github.com/jotavar/monitor-ssl-certificate-expiration/blob/master/images/LogAnalyticsWorkspace.jpg)
 
 ## Configure Alerts
 
