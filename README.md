@@ -33,3 +33,11 @@ This solution consists of:
 
 * One or more Azure Alert rules based on Log Analytics queries which fire alerts based on the results 
 
+# 2	Deployment Steps
+
+* Configure Log Analytics Workspace
+
+* Configure Automation Account
+
+* Confirue Alers
+
