@@ -31,3 +31,5 @@ This solution consists of:
 
 * A Log Analytics Workspace which will be used to store the monitored SSL certificate data
 
+* One or more Azure Alert rules based on Log Analytics queries which fire alerts based on the results 
+
