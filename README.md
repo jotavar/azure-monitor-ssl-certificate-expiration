@@ -35,9 +35,9 @@ This solution consists of:
 
 # 2	Deployment Steps
 
-* Configure Log Analytics Workspace
+## Configure Log Analytics Workspace
 
-* Configure Automation Account
+## Configure Automation Account
 
-* Confirue Alers
+## Configure Alerts
 
