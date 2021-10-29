@@ -39,6 +39,7 @@ This solution consists of:
 If you don't already have a Log Analytics Workspace available, you can quickly create one by following the intstruction in [Create a Log Analytics workspace in the Azure portal](https://docs.microsoft.com/en-us/azure/azure-monitor/logs/quick-create-workspace). 
 
 ## Configure Automation Account
+Create an Automation Account by following the intstruction in [Create a standalone Azure Automation account](https://docs.microsoft.com/en-us/azure/automation/automation-create-standalone-account).
 
 ## Configure Alerts
 
