@@ -1,4 +1,4 @@
-# 1	Overview
+# Overview
 This solution provides the ability to monitor multiple HTTPS enabled endpoints and send alerts in case the presented SSL certificates come within a certain threshold of expiring. The solution uses the following Azure Services:
 
 * [Azure Automation](https://docs.microsoft.com/en-us/azure/automation/overview)
@@ -33,7 +33,7 @@ This solution consists of:
 
 * One or more Azure Alert rules based on Log Analytics queries which fire alerts based on the results 
 
-# 2	Deployment Steps
+# Deployment Steps
 
 ## Configure Log Analytics Workspace
 If you don't already have a Log Analytics Workspace available, you can quickly create one by following the intstruction in [Create a Log Analytics workspace in the Azure portal](https://docs.microsoft.com/en-us/azure/azure-monitor/logs/quick-create-workspace). 
