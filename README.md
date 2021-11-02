@@ -154,11 +154,26 @@ CertificateExpiration_CL
     * Evaluation period: *1day*
     * Override query time range: *None (1 day)*
  
- * Click *Next: Actions*
+* Click *Next: Actions*
  
- * Click *Create action group*:
+* Click *Create action group*:
 
 ![](https://github.com/jotavar/monitor-ssl-certificate-expiration/blob/master/images/Alert_CreateActionGroup.jpg)
+
+* Provide the following values for the *Basic* form of the *Create action group* wizard:
+
+  * Action group name: *mail admins*
+  * Display name: *mail admins*
+
+* Click *Next: Notifications*:
+
+  * Notification type: *Email/SMS message/Push/Voice*
+  * Name: *send email"
+
+* In the *Email/SMS message/Push/Voice* form check the *Email* option and provide the email adress which should receive the email alert notifications:
+
+![](https://github.com/jotavar/monitor-ssl-certificate-expiration/blob/master/images/Alert_CreateActionGroup_Notifications.jpg)
+
 
 
 
