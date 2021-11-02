@@ -109,7 +109,15 @@ Create an Automation Account by following the instructions in [Create a standalo
 
 * Navigate to your Automation Account -> *Runbooks* -> *GetSSLCertificateExpiration* and click *Start* to run the task and confirm it completes without any errors.
 
-* Navigate to your Automation Account -> *Runbooks* -> *GetSSLCertificateExpiration* -> *Schedules* -> *+ Add a schedule*
+* Navigate to your Automation Account -> *Runbooks* -> *GetSSLCertificateExpiration* -> *Schedules* -> *+ Add a schedule* -> *Link a schedule to your runbook" -> *+ Add a schedule* and provide the following values in the *New Schedule* form:
+
+  * Name: *Run GetSSLCertificateExpiration runbook*
+  * Description: Optional
+  * Starts: Select current date and time
+  * Timezone: Select appropriate timezone
+  * Recurrence: Recurring
+  * Recur every: 1 day
+  * Set expriation: No 
 
 ## Configure Alerts
 
