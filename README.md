@@ -64,7 +64,7 @@ Create an Automation Account by following the instructions in [Create a standalo
   * Value: Paste the Workspace ID value copied from previous step
   * Encrypted: Optional
 
-* Click *Create*
+* Click *Create*.
 
 ### logAnalyticsPrimaryKey
   
@@ -80,7 +80,7 @@ Create an Automation Account by following the instructions in [Create a standalo
   * Value: Paste the Primary Key value copied from previous step
   * Encrypted: *Yes*
 
-* Click *Create*
+* Click *Create*.
 
 ### urlList
 
@@ -92,7 +92,7 @@ Create an Automation Account by following the instructions in [Create a standalo
   * Value: Insert the comma separated list of HTTPS endpoint URLs to monitor, e.g. 'https://www.microsoft.com,https://www.mydomain.com:8443,https://mail.google.com'
   * Encrypted: Optional
 
-* Click *Create*
+* Click *Create*.
 
 ## Create Runbook
 
@@ -138,7 +138,7 @@ CertificateExpiration_CL
 | summarize arg_max(TimeGenerated,*) by url_s
 ```
 
-* Click *Run* and *Continue Editing Alert*
+* Click *Run* and *Continue Editing Alert*.
 
 * Provide the following values for the remaining parameters in the *Condition* form:
   
@@ -178,7 +178,7 @@ CertificateExpiration_CL
 
 * Click *OK*, *Review + create* and *Create* to finalize the action group creation.
 
-* Once the Action Group is created you will be redirected back to the *Create alert rule* form. Click *Next: Details*
+* Once the Action Group is created you will be redirected back to the *Create alert rule* form. Click *Next: Details*.
 
 * Provide the following values for the remaining parameters in the *Condition* step of the Alert creation wizard:
 
