@@ -103,8 +103,8 @@ Function _SendToLogAnalytics {
 
 # Declare variables from Automation Account variables 
 $urlList = (Get-AutomationVariable -Name 'urlList').Split(",")
-$logAnalyticsWorkspaceID = Get-AutomationVariable -Name 'LogAnalyticsWorkspaceID'
-$logAnalyticsPrimaryKey = Get-AutomationVariable -Name 'LogAnalyticsPrimaryKey'
+$logAnalyticsWorkspaceID = Get-AutomationVariable -Name 'logAnalyticsWorkspaceID'
+$logAnalyticsPrimaryKey = Get-AutomationVariable -Name 'logAnalyticsPrimaryKey'
 
 Write-Output "Checking SSL certificates for the following URLs:"
 foreach ($url in $urlList) {
