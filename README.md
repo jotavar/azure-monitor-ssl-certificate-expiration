@@ -95,9 +95,9 @@ Create an Automation Account by following the instructions in [Create a standalo
   * Runtime version: '5.1'
   * Description: Optional
 
-* Copy the PowerShell script from "GetSSLCertificateDaysToExpiry.ps1" into the Runbook.
+* Copy the contents of PowerShell script [GetSSLCertificateDaysToExpiry.ps1](https://github.com/jotavar/monitor-ssl-certificate-expiration/blob/master/GetSSLCertificateDaysToExpiry.ps1) into the Runbook.
 
-* Click 'Publish' and 'Yes' to confirm.
+* Click on 'Save', 'Publish' and 'Yes' to confirm.
 
 * From the Automation Account Overview, click Start to run the task and confirm it completes with no errors. Within the Runbook, go to Schedules. Add/create a schedule that runs this scripts periodically.
 
