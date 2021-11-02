@@ -10,7 +10,7 @@ SSL certificates have a predetermined validity period (usually 2 years or less) 
 
 The certificate renewal process itself, as well as any necessary endpoint re-configurations, are usually not automated tasks so it is critical that these are triggered with enough time ahead of the certificate expiration date.
 
-Although CAs and other services responsible for emiting SSL certificates will send expiration notifications at predefined intervals (starting at 90 days out) certificate management can easily become a challenge for most organizations. It is often the case that site admins and other operations personnel do not have adequate visibility over the validity status of all the SSL certificates used accross their application ecosystem.
+Although CAs and other services responsible for emitting SSL certificates will send expiration notifications at predefined intervals (starting at 90 days out) certificate management can easily become a challenge for most organizations. It is often the case that site admins and other operations personnel do not have adequate visibility over the validity status of all the SSL certificates used across their application ecosystem.
 
 ## Solution Design
 
@@ -32,7 +32,7 @@ This solution consists of:
 
     * executes an HTTP GET request on the URL in order to retrieve the SSL certificate
     * parses the certificate and calculates the number of days remaining until certificate expiration
-    * sends an entry to Log Analytics Workpace containing the URL and the number of days calculated in previous step
+    * sends an entry to Log Analytics Workspace containing the URL and the number of days calculated in previous step
 
   * A Schedule which specifies the Runbook's recurring (daily) execution
 
@@ -123,7 +123,7 @@ Create an Automation Account by following the instructions in [Create a standalo
 
 You can combine different Log Queries and notification settings in order to implement different alerting strategies based on this setup. For example you can implement separate alerts for each of the monitored URLs or a single alert which includes all URLs. You can also configure different severity levels for different endpoints (eg: Prod Vs Non-Prod) or send notifications to specific recipients depending on the URL of the certificate which is about to expire (if for example specific operations teams are responsible for renewing each of the certificates).
 
-The following steps describe a simple example of such an Alert Rule which will trigger an email notification to an operations admin account as long as there is at least 1 certificate with under 90 days left until exiration.
+The following steps describe a simple example of such an Alert Rule which will trigger an email notification to an operations admin account as long as there is at least 1 certificate with under 90 days left until expiration.
 
 * Navigate to your Log Analytics Workspace -> *Alerts* -> *+ New alert rule*. In the *Select a signal* form select *Custom log search*:
 
@@ -152,7 +152,7 @@ CertificateExpiration_CL
   * Alert logic
     * Operator: *Greater than*
     * Threshold value: *0*
-    * Frequency of evalutation: *1 day*
+    * Frequency of evaluation: *1 day*
   * Advanced options:
     * Number of violations: *1*
     * Evaluation period: *1day*
@@ -172,7 +172,7 @@ CertificateExpiration_CL
   * Notification type: *Email/SMS message/Push/Voice*
   * Name: *send email"
 
-* In the *Email/SMS message/Push/Voice* form check the *Email* option and provide the email adress which should receive the email alert notifications:
+* In the *Email/SMS message/Push/Voice* form check the *Email* option and provide the email address which should receive the email alert notifications:
 
 ![](https://github.com/jotavar/monitor-ssl-certificate-expiration/blob/master/images/Alert_CreateActionGroup_Notifications.jpg)
 
