@@ -35,68 +35,53 @@ This solution consists of:
 
 # Deployment Steps
 
-## Configure Log Analytics Workspace
+## Create Log Analytics Workspace
 
-* If you don't already have a Log Analytics Workspace available, you can quickly create one by following the instructions in [Create a Log Analytics workspace in the Azure portal](https://docs.microsoft.com/en-us/azure/azure-monitor/logs/quick-create-workspace).
+If you don't already have a Log Analytics Workspace available, you can quickly create one by following the instructions in [Create a Log Analytics workspace in the Azure portal](https://docs.microsoft.com/en-us/azure/azure-monitor/logs/quick-create-workspace).
 
-* Navigate to 'Log Analytics Workspace' -> 'Agents Management' and copy the fields 'Workspace ID' and 'Primary key':
+## Create Automation Account
 
-![](https://github.com/jotavar/monitor-ssl-certificate-expiration/blob/master/images/LogAnalyticsWorkspace.jpg)
+Create an Automation Account by following the instructions in [Create a standalone Azure Automation account](https://docs.microsoft.com/en-us/azure/automation/automation-create-standalone-account).
 
-## Configure Automation Account
+## Create Automation Account Variables
 
-* Create an Automation Account by following the instructions in [Create a standalone Azure Automation account](https://docs.microsoft.com/en-us/azure/automation/automation-create-standalone-account).
+### logAnalyticsWorkspaceID
 
-* Create Automation Account Variables
+* Navigate to 'Log Analytics Workspace' -> 'Agents Management' and copy the 'WorkspaceID' field:
 
-  * LogAnalyticsWorkspaceID
+![](https://github.com/jotavar/monitor-ssl-certificate-expiration/blob/master/images/LogAnalyticsWorkspace_WorkspaceID.jpg)
 
-The Log Analytics Workspace ID is an Azure Automation variable that can be encrypted to prevent unauthorized disclosure. To obtain the key, navigate to the Log Analytics Workspace -> Agents Management and copy the WorkspaceID field.
+* Navigate to 'Automation Account' -> 'Variables' -> '+ Add a variable' and provide the following values in the 'New Variable' form:
 
-![](https://github.com/jotavar/monitor-ssl-certificate-expiration/blob/master/images/AutomationAccount.jpg)
-
-    * Navigate to 'Automation Account' -> 'Variables' -> '+ Add a variable':
-
-      * Name: 'LogAnalyticsWorkspaceID'
-      * Description: Optional
-      * Type: String
-      * Value: Paste the Workspace ID value copied from previous step
-      * Encrypted: Optional
-
-  * LogAnalyticsPrimaryKey
-  
-The Log Analytics Primary key is an Azure Automation variable that can be encrypted to prevent unauthorized disclosure. To obtain the key, navigate to the Log Analytics Workspace -> Agents Management and copy the Primary Key field.
-
-![](https://github.com/jotavar/monitor-ssl-certificate-expiration/blob/master/images/AutomationAccount.jpg)
-
-    * Provide the following values in the 'New Variable' form:
-
-      * Name: 'LogAnalyticsPrimaryKey'
-      * Description: Optional
-      * Type: String
-      * Value: Paste the Workspace Key value copied from previous step
-      * Encrypted: Yes
-
-  * urlList
-* Click on '+ Add a variable' again and provide the following values in the 'New Variable' form:
-
-  * Name: 'LogAnalyticsPrimaryKey'
+  * Name: 'logAnalyticsWorkspaceID'
   * Description: Optional
   * Type: String
-  * Value: Paste the Workspace Key value copied from previous step
-   * Encrypted: Yes
+  * Value: Paste the Workspace ID value copied from previous step
+  * Encrypted: Optional
 
-* Click on 'Create'
+### logAnalyticsPrimaryKey
+  
+* Navigate to 'Log Analytics Workspace' -> 'Agents Management' and copy the 'Primary Key' field.
 
-* Click on '+ Add a variable' again and provide the following values in the 'New Variable' form:
+![](https://github.com/jotavar/monitor-ssl-certificate-expiration/blob/master/images/LogAnalyticsWorkspace_PrimaryKey.jpg)
+
+* Navigate to 'Automation Account' -> 'Variables' -> '+ Add a variable' and provide the following values in the 'New Variable' form:
+
+  * Name: 'logAnalyticsPrimaryKey'
+  * Description: Optional
+  * Type: String
+  * Value: Paste the Primary Key value copied from previous step
+  * Encrypted: Yes
+
+### urlList
+
+* Navigate to 'Automation Account' -> 'Variables' -> '+ Add a variable' and provide the following values in the 'New Variable' form:
 
   * Name: 'urlList'
   * Description: Optional
   * Type: String
   * Value: Insert the comma separated list of HTTPS endpoint URLs to monitor, e.g. 'https://www.microsoft.com,https://www.mydomain.com:8443,https://mail.google.com'
   * Encrypted: Optional
-
-* Click on 'Create'
 
 ## Configure Alerts
 
