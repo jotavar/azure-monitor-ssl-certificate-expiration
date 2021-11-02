@@ -160,12 +160,12 @@ CertificateExpiration_CL
 
 ![](https://github.com/jotavar/monitor-ssl-certificate-expiration/blob/master/images/Alert_CreateActionGroup.jpg)
 
-* Provide the following values for the *Basic* form of the *Create action group* wizard:
+* Provide the following values in the *Basics* form:
 
   * Action group name: *mail admins*
   * Display name: *mail admins*
 
-* Click *Next: Notifications*:
+* Click *Next: Notifications* and provide the following values in the *Notifications* form:
 
   * Notification type: *Email/SMS message/Push/Voice*
   * Name: *send email"
@@ -174,6 +174,22 @@ CertificateExpiration_CL
 
 ![](https://github.com/jotavar/monitor-ssl-certificate-expiration/blob/master/images/Alert_CreateActionGroup_Notifications.jpg)
 
+* Click *OK*, *Review + create* and *Create* to finalize the action group creation.
+
+* Once the Action Group is created you will be redirected back to the *Create alert rule* form. Click *Next: Details*
+
+* Provide the following values for the remaining parameters in the *Condition* step of the Alert creation wizard:
+
+  * Alert rule details
+    * Severity: *2 - Warning*
+    * Alert rule name: *Monitor SSL Certificate Expiration*
+    * Alert rule description: Optional
+  * Advanced options:
+    * Enable upon creation: Yes
+    * Mute Actions: No
+    * Check workspace linked storage: No
+ 
+* Click *Review + create* and *Create* to finalize Alert Rule creation.
 
 
 
