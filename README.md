@@ -121,7 +121,7 @@ Create an Automation Account by following the instructions in [Create a standalo
 
 ## Create Alert
 
-You can combine different Log Queries and notification settings in order to implement different alerting strategies based on this setup. For example you can implement separate alerts for each of the monitored URLs or a single alert which includes all URLs. You can also configure different severity levels for different endpoints (eg: Prod Vs Non-Prod) or send notifications to specific recipients depending on the URL of the certificate which is about to expire (if for example specific operations teams are responsible for each of the certificates).
+You can combine different Log Queries and notification settings in order to implement different alerting strategies based on this setup. For example you can implement separate alerts for each of the monitored URLs or a single alert which includes all URLs. You can also configure different severity levels for different endpoints (eg: Prod Vs Non-Prod) or send notifications to specific recipients depending on the URL of the certificate which is about to expire (if for example specific operations teams are responsible for renewing each of the certificates).
 
 The following steps describe a simple example of such an Alert Rule which will trigger an email notification to an operations admin account as long as there is at least 1 certificate with under 90 days left until exiration.
 
