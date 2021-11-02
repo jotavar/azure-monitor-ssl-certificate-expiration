@@ -121,6 +121,10 @@ Create an Automation Account by following the instructions in [Create a standalo
 
 ## Create Alert
 
+You can combine different Log Queries and notification settings in order to implement different alerting strategies based on this setup. For example you can implement separate alerts for each of the monitored URLs or a single alert which includes all URLs. You can also configure different severity levels for different endpoints (eg: Prod Vs Non-Prod) or send notifications to specific recipients depending on the URL of the certificate which is about to expire (if for example specific operations teams are responsible for each of the certificates).
+
+The following steps describe a simple example of such an Alert Rule which will trigger an email notification to an operations admin account as long as there is at least 1 certificate with under 90 days left until exiration.
+
 * Navigate to your Log Analytics Workspace -> *Alerts* -> *+ New alert rule*. In the *Select a signal* form select *Custom log search*:
 
 ![](https://github.com/jotavar/monitor-ssl-certificate-expiration/blob/master/images/Alert_SelectSignal.jpg)
@@ -136,7 +140,7 @@ CertificateExpiration_CL
 
 * Click *Run* and *Continue Editing Alert*
 
-* Provide the following values for the remaining parameters in the *Condition* step of the Alert creation wizard:
+* Provide the following values for the remaining parameters in the *Condition* form:
   
   * Measurement
     * Measure: *Table rows*
@@ -154,9 +158,7 @@ CertificateExpiration_CL
     * Evaluation period: *1day*
     * Override query time range: *None (1 day)*
  
-* Click *Next: Actions*
- 
-* Click *Create action group*:
+* Click *Next: Actions*, and *Create action group*:
 
 ![](https://github.com/jotavar/monitor-ssl-certificate-expiration/blob/master/images/Alert_CreateActionGroup.jpg)
 
