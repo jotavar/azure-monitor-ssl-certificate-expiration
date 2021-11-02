@@ -47,20 +47,37 @@ This solution consists of:
 
 * Create an Automation Account by following the instructions in [Create a standalone Azure Automation account](https://docs.microsoft.com/en-us/azure/automation/automation-create-standalone-account).
 
-* Navigate to 'Automation Account' -> 'Variables' -> '+ Add a variable':
+* Create Automation Account Variables
+
+  * LogAnalyticsWorkspaceID
+
+The Log Analytics Workspace ID is an Azure Automation variable that can be encrypted to prevent unauthorized disclosure. To obtain the key, navigate to the Log Analytics Workspace -> Agents Management and copy the WorkspaceID field.
 
 ![](https://github.com/jotavar/monitor-ssl-certificate-expiration/blob/master/images/AutomationAccount.jpg)
- 
-* Provide the following values in the 'New Variable' form:
 
-  * Name: 'LogAnalyticsWorkspaceID'
-  * Description: Optional
-  * Type: String
-  * Value: Paste the Workspace ID value copied from previous step
-  * Encrypted: Optional
+    * Navigate to 'Automation Account' -> 'Variables' -> '+ Add a variable':
 
-* Click on 'Create'
+      * Name: 'LogAnalyticsWorkspaceID'
+      * Description: Optional
+      * Type: String
+      * Value: Paste the Workspace ID value copied from previous step
+      * Encrypted: Optional
 
+  * LogAnalyticsPrimaryKey
+  
+The Log Analytics Primary key is an Azure Automation variable that can be encrypted to prevent unauthorized disclosure. To obtain the key, navigate to the Log Analytics Workspace -> Agents Management and copy the Primary Key field.
+
+![](https://github.com/jotavar/monitor-ssl-certificate-expiration/blob/master/images/AutomationAccount.jpg)
+
+    * Provide the following values in the 'New Variable' form:
+
+      * Name: 'LogAnalyticsPrimaryKey'
+      * Description: Optional
+      * Type: String
+      * Value: Paste the Workspace Key value copied from previous step
+      * Encrypted: Yes
+
+  * urlList
 * Click on '+ Add a variable' again and provide the following values in the 'New Variable' form:
 
   * Name: 'LogAnalyticsPrimaryKey'
