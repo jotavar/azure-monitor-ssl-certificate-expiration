@@ -62,6 +62,8 @@ Create an Automation Account by following the instructions in [Create a standalo
   * Value: Paste the Workspace ID value copied from previous step
   * Encrypted: Optional
 
+* Click 'Create'
+
 ### logAnalyticsPrimaryKey
   
 * Navigate to your Log Analytics Workspace -> 'Agents Management' and copy the 'Primary Key' field.
@@ -76,6 +78,8 @@ Create an Automation Account by following the instructions in [Create a standalo
   * Value: Paste the Primary Key value copied from previous step
   * Encrypted: Yes
 
+* Click 'Create'
+
 ### urlList
 
 * Navigate to your Automation Account -> 'Variables' -> '+ Add a variable' and provide the following values in the 'New Variable' form:
@@ -85,6 +89,8 @@ Create an Automation Account by following the instructions in [Create a standalo
   * Type: String
   * Value: Insert the comma separated list of HTTPS endpoint URLs to monitor, e.g. 'https://www.microsoft.com,https://www.mydomain.com:8443,https://mail.google.com'
   * Encrypted: Optional
+
+* Click 'Create'
 
 ## Create Runbook
 
@@ -97,7 +103,7 @@ Create an Automation Account by following the instructions in [Create a standalo
 
 * Copy the contents of PowerShell script [GetSSLCertificateDaysToExpiry.ps1](https://github.com/jotavar/monitor-ssl-certificate-expiration/blob/master/GetSSLCertificateDaysToExpiry.ps1) into the Runbook.
 
-* Click on 'Save', 'Publish' and 'Yes' to confirm.
+* Click 'Save', 'Publish' and 'Yes' to confirm.
 
 * From the Automation Account Overview, click Start to run the task and confirm it completes with no errors. Within the Runbook, go to Schedules. Add/create a schedule that runs this scripts periodically.
 
