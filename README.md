@@ -60,7 +60,7 @@ Create an Automation Account by following the instructions in [Create a standalo
 
   * Name: *logAnalyticsWorkspaceID*
   * Description: Optional
-  * Type: String
+  * Type: *String*
   * Value: Paste the Workspace ID value copied from previous step
   * Encrypted: Optional
 
@@ -76,9 +76,9 @@ Create an Automation Account by following the instructions in [Create a standalo
 
   * Name: *logAnalyticsPrimaryKey*
   * Description: Optional
-  * Type: String
+  * Type: *String*
   * Value: Paste the Primary Key value copied from previous step
-  * Encrypted: Yes
+  * Encrypted: *Yes*
 
 * Click *Create*
 
@@ -88,7 +88,7 @@ Create an Automation Account by following the instructions in [Create a standalo
   
   * Name: *urlList*
   * Description: Optional
-  * Type: String
+  * Type: *String*
   * Value: Insert the comma separated list of HTTPS endpoint URLs to monitor, e.g. 'https://www.microsoft.com,https://www.mydomain.com:8443,https://mail.google.com'
   * Encrypted: Optional
 
@@ -115,9 +115,50 @@ Create an Automation Account by following the instructions in [Create a standalo
   * Description: Optional
   * Starts: Select current date and time
   * Timezone: Select appropriate timezone
-  * Recurrence: Recurring
-  * Recur every: 1 day
-  * Set expiration: No 
+  * Recurrence: *Recurring*
+  * Recur every: *1 day*
+  * Set expiration: *No* 
 
-## Configure Alerts
+## Create Alert
+
+* Navigate to your Log Analytics Workspace -> *Alerts* -> *+ New alert rule*. In the *Select a signal* form select *Custom log search*:
+
+![](https://github.com/jotavar/monitor-ssl-certificate-expiration/blob/master/images/Alert_SelectSignal.jpg)
+
+* In the Log Query editor insert the following query:
+
+```
+CertificateExpiration_CL
+| where certExpiresIn_d <= 90 
+| where TimeGenerated > ago(1d)
+| summarize arg_max(TimeGenerated,*) by url_s
+```
+
+* Click *Run* and *Continue Editing Alert*
+
+* Provide the following values for the remaining parameters in the *Condition* step of the Alert creation wizard:
+  
+  * Measurement
+    * Measure: *Table rows*
+    * Measurement -> Aggregation Type: *Count*
+    * Measurement -> Aggregation granularity: *1 day*
+  * Split by dimensions
+    * Resource ID column: *Don't split*
+    * Dimension name: Leave empty
+  * Alert logic
+    * Operator: *Greater than*
+    * Threshold value: *0*
+    * Frequency of evalutation: *1 day*
+  * Advanced options:
+    * Number of violations: *1*
+    * Evaluation period: *1day*
+    * Override query time range: *None (1 day)*
+ 
+ * Click *Next: Actions*
+ 
+ * Click *Create action group*:
+
+![](https://github.com/jotavar/monitor-ssl-certificate-expiration/blob/master/images/Alert_CreateActionGroup.jpg)
+
+
 
