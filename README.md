@@ -23,16 +23,18 @@ This solution consists of:
 * An Azure Automation Account containing:
 
   * The following Variables:
+
     * List of HTTPS endpoint URLs to monitor
     * Log Analytics Workspace ID
     * Log Analytics Primary Key
 
-* A Runbook consisting of a PowerShell script which executes the following steps for each URL:
+  * A Runbook consisting of a PowerShell script which executes the following steps for each URL:
+
     * executes an HTTP GET request on the URL in order to retrieve the SSL certificate
     * parses the certificate and calculates the number of days remaining until certificate expiration
     * sends an entry to Log Analytics Workpace containing the URL and the number of days calculated in previous step
 
-* A Schedule which specifies the Runbook's recurring (daily) execution
+  * A Schedule which specifies the Runbook's recurring (daily) execution
 
 * One or more Azure Alert rules based on Log Analytics queries which fire alerts based on the results 
 
@@ -50,62 +52,64 @@ Create an Automation Account by following the instructions in [Create a standalo
 
 ### logAnalyticsWorkspaceID
 
-* Navigate to your Log Analytics Workspace -> 'Agents Management' and copy the 'WorkspaceID' field:
+* Navigate to your Log Analytics Workspace -> *Agents Management* and copy the *Workspace ID* field:
 
 ![](https://github.com/jotavar/monitor-ssl-certificate-expiration/blob/master/images/LogAnalyticsWorkspace_WorkspaceID.jpg)
 
-* Navigate to your Automation Account -> 'Variables' -> '+ Add a variable' and provide the following values in the 'New Variable' form:
+* Navigate to your Automation Account -> *Variables* -> *+ Add a variable* and provide the following values in the *New Variable* form:
 
-  * Name: 'logAnalyticsWorkspaceID'
+  * Name: *logAnalyticsWorkspaceID*
   * Description: Optional
   * Type: String
   * Value: Paste the Workspace ID value copied from previous step
   * Encrypted: Optional
 
-* Click 'Create'
+* Click *Create*
 
 ### logAnalyticsPrimaryKey
   
-* Navigate to your Log Analytics Workspace -> 'Agents Management' and copy the 'Primary Key' field.
+* Navigate to your Log Analytics Workspace -> *Agents Management* and copy the *Primary Key* field.
 
 ![](https://github.com/jotavar/monitor-ssl-certificate-expiration/blob/master/images/LogAnalyticsWorkspace_PrimaryKey.jpg)
 
-* Navigate to your Automation Account -> 'Variables' -> '+ Add a variable' and provide the following values in the 'New Variable' form:
+* Navigate to your Automation Account -> *Variables* -> *+ Add a variable* and provide the following values in the *New Variable* form:
 
-  * Name: 'logAnalyticsPrimaryKey'
+  * Name: *logAnalyticsPrimaryKey*
   * Description: Optional
   * Type: String
   * Value: Paste the Primary Key value copied from previous step
   * Encrypted: Yes
 
-* Click 'Create'
+* Click *Create*
 
 ### urlList
 
-* Navigate to your Automation Account -> 'Variables' -> '+ Add a variable' and provide the following values in the 'New Variable' form:
+* Navigate to your Automation Account -> *Variables* -> *+ Add a variable* and provide the following values in the *New Variable* form:
   
-  * Name: 'urlList'
+  * Name: *urlList*
   * Description: Optional
   * Type: String
   * Value: Insert the comma separated list of HTTPS endpoint URLs to monitor, e.g. 'https://www.microsoft.com,https://www.mydomain.com:8443,https://mail.google.com'
   * Encrypted: Optional
 
-* Click 'Create'
+* Click *Create*
 
 ## Create Runbook
 
-* Navigate to your Automation Account -> 'Runbooks' -> '+ Create a runbook' and provide the following values in the 'Create a runbook' form:
+* Navigate to your Automation Account -> *Runbooks* -> *+ Create a runbook* and provide the following values in the *Create a runbook* form:
   
-  * Name: 'GetSSLCertificateExpiration'
-  * Runbook type: 'PowerShell'
-  * Runtime version: '5.1'
+  * Name: *GetSSLCertificateExpiration*
+  * Runbook type: PowerShell
+  * Runtime version: 5.1
   * Description: Optional
 
 * Copy the contents of PowerShell script [GetSSLCertificateDaysToExpiry.ps1](https://github.com/jotavar/monitor-ssl-certificate-expiration/blob/master/GetSSLCertificateDaysToExpiry.ps1) into the Runbook.
 
-* Click 'Save', 'Publish' and 'Yes' to confirm.
+* Click *Save*, *Publish* and *Yes* to confirm.
 
-* From the Automation Account Overview, click Start to run the task and confirm it completes with no errors. Within the Runbook, go to Schedules. Add/create a schedule that runs this scripts periodically.
+* Navigate to your Automation Account -> *Runbooks* -> *GetSSLCertificateExpiration* and click *Start* to run the task and confirm it completes without any errors.
+
+* Navigate to your Automation Account -> *Runbooks* -> *GetSSLCertificateExpiration* -> *Schedules* -> *+ Add a schedule*
 
 ## Configure Alerts
 
