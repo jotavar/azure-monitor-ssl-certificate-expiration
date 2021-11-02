@@ -117,7 +117,7 @@ Create an Automation Account by following the instructions in [Create a standalo
   * Timezone: Select appropriate timezone
   * Recurrence: Recurring
   * Recur every: 1 day
-  * Set expriation: No 
+  * Set expiration: No 
 
 ## Configure Alerts
 
